@@ -1,0 +1,32 @@
+* {
+    font-size: 18px;
+}
+section.left {
+    width: 45%;
+    float: left;
+    margin-left: 10px;
+}
+section.right {
+    width: 45%;
+    float: left;
+    margin-left: 10px;
+    
+}
+.leftwidth {
+    width: 350px;
+}
+.rightwidth {
+    width: 350px;
+}
+.col-md-4 {
+    float: right;
+}
+.material-icons.photo { 
+    font-size: 60px; 
+}
+button.camera { 
+    font-size: 18px; 
+    position: absolute;
+    right: 5px;
+    top: 15px;
+}

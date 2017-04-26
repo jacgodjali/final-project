@@ -1,0 +1,73 @@
+<br>
+<i class="material-icons photo">account_circle</i>
+<button md-icon-button class="camera" (click)="clickButton()">
+<i class="material-icons">photo_camera</i>
+  </button>
+<section class="left">
+  <md-input-container class="leftwidth">
+    <input mdInput placeholder="First Name" value="First Name">
+  </md-input-container>
+  <br>
+  <md-input-container class="leftwidth">
+    <input mdInput placeholder="Last Name" value="Last Name">
+  </md-input-container>
+  <br>
+  <md-select class="leftwidth" placeholder="Gender">
+    <md-option *ngFor="let gender of sex" [value]="gender.value">
+      {{ gender.values }}
+    </md-option>
+  </md-select>
+  <br><br>
+  <md-input-container class="leftwidth">
+    <input mdInput placeholder="Date of Birth" value="Date of Birth" type="date">
+  </md-input-container>
+  <br>
+  <md-input-container class="leftwidth">
+    <input mdInput placeholder="Nationality" value="Nationality">
+  </md-input-container>
+  <br>
+  <md-input-container class="leftwidth">
+    <input mdInput placeholder="Marital Status" value="Marital Status">
+  </md-input-container>
+  <br>
+  <md-input-container class="leftwidth">
+    <input mdInput placeholder="Phone" value="Phone">
+  </md-input-container>
+</section>
+<section class="right">
+  <md-input-container class="rightwidth">
+    <input mdInput placeholder="Sub Division" value="Sub Division">
+  </md-input-container>
+  <br>
+  <md-input-container class="rightwidth">
+    <input mdInput placeholder="Status" value="Status">
+  </md-input-container>
+  <br>
+  <md-input-container class="rightwidth">
+    <input mdInput placeholder="Suspend Date" value="Suspend Date" type="date">
+  </md-input-container>
+  <br>
+  <md-input-container class="rightwidth">
+    <input mdInput placeholder="Hired Date" value="Hired Date" type="date">
+  </md-input-container>
+  <br>
+  <md-select class="leftwidth" placeholder="Grade">
+    <md-option *ngFor="let grade of grades" [value]="grade.value">
+      {{ grade.values }}
+    </md-option>
+  </md-select>
+  <br><br>
+  <md-select class="leftwidth" placeholder="Division">
+    <md-option *ngFor="let div of divisions" [value]="div.value">
+      {{ div.values }}
+    </md-option>
+  </md-select>
+  <br><br>
+  <md-input-container class="rightwidth">
+    <input mdInput placeholder="Email" value="Email" type="email">
+  </md-input-container>
+</section>
+<div class="col-md-4">
+  <button type="reset" class="btn btn-primary">Reset</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>

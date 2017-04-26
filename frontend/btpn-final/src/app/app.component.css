@@ -1,0 +1,14 @@
+* {
+    width: 100%;
+    margin: auto;
+}
+sidelist {
+    position: relative;
+    float: left;
+    width: 28%;
+}
+mainbody {
+    position: relative;
+    float: left;
+    width:72%;
+}
