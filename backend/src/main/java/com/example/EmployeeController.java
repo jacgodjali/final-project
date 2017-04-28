@@ -36,6 +36,7 @@ public class EmployeeController {
 	private ObjectMapper mapper;
 	
 	@PostMapping("/add")
+	@CrossOrigin(origins = "http://localhost:4200")
 	@ResponseBody
 	public void addEmployee(@RequestBody String jsonObj)
 	{
@@ -60,9 +61,9 @@ public class EmployeeController {
 	@GetMapping("/filter")
 	@CrossOrigin(origins = "http://localhost:4200")
 	@ResponseBody
-	public Iterable<Employee> filterEmployee(@RequestParam() String gender, String location)
+	public Iterable<Employee> filterEmployee(@RequestParam() String gender, Location location)
 	{
-		if(!gender.isEmpty()&&location.isEmpty()){
+		if(!gender.isEmpty()&&location.getCity().isEmpty()){
 			return this.repository.findByGenderAllIgnoreCase(gender);
 		}
 		return this.repository.findByLocationAndGender(location, gender);
@@ -81,7 +82,7 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH}, value="/{employeeId}")
-	public void update(@PathVariable Integer employeeId, @RequestBody Employee emp) {
+	public void update(@PathVariable Long employeeId, @RequestBody Employee emp) {
 		Employee entity = this.repository.findOne(employeeId);
 		if (entity == null) {
 			throw new EmployeeNotFoundException();
@@ -95,14 +96,46 @@ public class EmployeeController {
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/delete/{id}")
-	public void deleteEmployeeById(@PathVariable Integer id) {
+	public void deleteEmployeeById(@PathVariable Long id) {
 		this.repository.delete(id);
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/getById/{id}")
-	public Employee getEmployeeById(@PathVariable Integer id) {
+	public Employee getEmployeeById(@PathVariable Long id) {
 		return this.repository.findOne(id);
 	}
 
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("/sortBy/{sort}")
+	public Iterable<Employee> sorting(@PathVariable String sort) {
+		if(sort.equalsIgnoreCase("ascend")) {
+			Sort.Order sorted = new Sort.Order(Sort.Direction.ASC, "lastName").ignoreCase();
+			return this.repository.findAll(new Sort(sorted));
+		}
+		
+		else if(sort.equalsIgnoreCase("descend")) {
+			Sort.Order sorted = new Sort.Order(Sort.Direction.DESC, "lastName").ignoreCase();
+			return this.repository.findAll(new Sort(sorted));
+		}
+		
+		return this.repository.findAll();
+		
+	}
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("/filterBy/{filter}")
+	public Iterable<Employee> filtering(@PathVariable String filter) {
+		if(filter.equalsIgnoreCase("location")) {
+			Sort.Order sorted = new Sort.Order(Sort.Direction.ASC, "lastName").ignoreCase();
+			return this.repository.findAll(new Sort(sorted));
+		}
+		
+		else if(filter.equalsIgnoreCase("gender")) {
+			Sort.Order sorted = new Sort.Order(Sort.Direction.DESC, "lastName").ignoreCase();
+			return this.repository.findAll(new Sort(sorted));
+		}
+		
+		return this.repository.findAll();
+		
+	}
 }
