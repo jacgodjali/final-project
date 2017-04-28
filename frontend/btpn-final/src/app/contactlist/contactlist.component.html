@@ -1,73 +1,84 @@
-<br>
+<section (ngSubmit)="onSubmit(form.value)">
+<button md-mini-fab class="add" (click)="openDialog()">
+ <i class="material-icons add">add</i>
+  </button><br>
 <i class="material-icons photo">account_circle</i>
 <button md-icon-button class="camera" (click)="clickButton()">
-<i class="material-icons">photo_camera</i>
+<i class="material-icons camera">photo_camera</i>
   </button>
 <section class="left">
   <md-input-container class="leftwidth">
-    <input mdInput placeholder="First Name" value="First Name">
+    <input mdInput placeholder="First Name" name="firstName">
   </md-input-container>
   <br>
   <md-input-container class="leftwidth">
-    <input mdInput placeholder="Last Name" value="Last Name">
+    <input mdInput placeholder="Last Name" name="lastName">
   </md-input-container>
   <br>
   <md-select class="leftwidth" placeholder="Gender">
-    <md-option *ngFor="let gender of sex" [value]="gender.value">
+    <md-option *ngFor="let gender of sex" [value]="gender.value" name="gender">
       {{ gender.values }}
     </md-option>
   </md-select>
   <br><br>
   <md-input-container class="leftwidth">
-    <input mdInput placeholder="Date of Birth" value="Date of Birth" type="date">
+    <input mdInput placeholder="Date of Birth" name="dateOfBirth" type="date">
   </md-input-container>
   <br>
   <md-input-container class="leftwidth">
-    <input mdInput placeholder="Nationality" value="Nationality">
+    <input mdInput placeholder="Nationality" name="nationality">
   </md-input-container>
   <br>
   <md-input-container class="leftwidth">
-    <input mdInput placeholder="Marital Status" value="Marital Status">
+    <input mdInput placeholder="Marital Status" name="maritalStatus">
   </md-input-container>
   <br>
   <md-input-container class="leftwidth">
-    <input mdInput placeholder="Phone" value="Phone">
+    <input mdInput placeholder="Phone" name="phone">
   </md-input-container>
+  <br>
+  <md-select class="leftwidth" placeholder="Location">
+    <md-option *ngFor="let loc of location" [value]="loc.value">
+      {{ loc.values }}
+    </md-option>
+  </md-select>
 </section>
 <section class="right">
   <md-input-container class="rightwidth">
-    <input mdInput placeholder="Sub Division" value="Sub Division">
+    <input mdInput placeholder="Sub Division" name="subDivision">
   </md-input-container>
   <br>
   <md-input-container class="rightwidth">
-    <input mdInput placeholder="Status" value="Status">
+    <input mdInput placeholder="Status" name="status">
   </md-input-container>
   <br>
   <md-input-container class="rightwidth">
-    <input mdInput placeholder="Suspend Date" value="Suspend Date" type="date">
+    <input mdInput placeholder="Suspend Date" name="suspendDate" type="date">
   </md-input-container>
   <br>
   <md-input-container class="rightwidth">
-    <input mdInput placeholder="Hired Date" value="Hired Date" type="date">
+    <input mdInput placeholder="Hired Date" name="hiredDate" type="date">
   </md-input-container>
   <br>
   <md-select class="leftwidth" placeholder="Grade">
-    <md-option *ngFor="let grade of grades" [value]="grade.value">
+    <md-option *ngFor="let grade of grades" [value]="grade.value" name="grade">
       {{ grade.values }}
     </md-option>
   </md-select>
   <br><br>
   <md-select class="leftwidth" placeholder="Division">
-    <md-option *ngFor="let div of divisions" [value]="div.value">
+    <md-option *ngFor="let div of divisions" [value]="div.value" name="div">
       {{ div.values }}
     </md-option>
   </md-select>
   <br><br>
   <md-input-container class="rightwidth">
-    <input mdInput placeholder="Email" value="Email" type="email">
+    <input mdInput placeholder="Email" name="email" type="email">
   </md-input-container>
 </section>
+<br><br>
 <div class="col-md-4">
   <button type="reset" class="btn btn-primary">Reset</button>
   <button type="submit" class="btn btn-primary">Submit</button>
 </div>
+</section>

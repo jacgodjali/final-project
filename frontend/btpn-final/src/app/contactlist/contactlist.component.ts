@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { AppService } from 'app/app.service';
 
 @Component({
 	selector: 'contactlist',
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ContactlistComponent implements OnInit {
+  form;
+  @Input() data: any = [];
+  constructor(private postService:AppService) {}
   sex = [
     {values: 'Female'},
     {values: 'Male'}
@@ -19,13 +24,42 @@ export class ContactlistComponent implements OnInit {
 	
 	
   ];
-  divisions = [
-    {values: 'Bali'},
+  location = [
     {values: 'Jakarta'},
-    {values: 'Yogyakarta'},
-    {values: 'Bandung'}	
-	
+    {values: 'Bali'},
+    {values: 'Bandung'},
+    {values: 'Yogyakarta'}	
   ];
-	ngOnInit() { }
+  divisions = [
+    {values: 'BTPN Jenius'},
+    {values: 'CDC AsteRx'},
+    {values: 'SWD Green'},
+    {values: 'SWD Pink'},
+    {values: 'Finance & Accounting'}
+  ];
+
+  
+	ngOnInit() { 
+    this.form = new FormGroup({
+      firstName: new FormControl(''),
+      lastName : new FormControl(''),
+      gender : new FormControl(''),
+      dateOfBirth : new FormControl(''),
+      nationality : new FormControl(''),
+      maritalStatus : new FormControl(''),
+      phone : new FormControl(''),
+      subDivision : new FormControl(''),
+      status : new FormControl(''),
+      suspendDate : new FormControl(''),
+      hiredData : new FormControl(''),
+      grade : new FormControl(''),
+      div : new FormControl(''),
+      email : new FormControl('')
+    });
+  }
+  onSubmit(item){
+      console.log(item);
+      this.postService.post(item);
+  }
 	
 }

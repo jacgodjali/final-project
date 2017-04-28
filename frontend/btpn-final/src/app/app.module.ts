@@ -4,15 +4,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MdToolbarModule,MdInputModule, MdChipsModule, 
-  MdTabsModule, MdSelectModule, MaterialModule, MdDialogModule } from '@angular/material';
+  MdTabsModule, MdSelectModule, MaterialModule, MdDialogModule,
+MdCardModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { TopheaderComponent } from './topheader/topheader.component';
 import { SearchtoolComponent } from './searchtool/searchtool.component';
-import { SidelistComponent } from './sidelist/sidelist.component';
 import { MainbodyComponent } from './mainbody/mainbody.component';
 import { NavigatorComponent } from './navigator/navigator.component';
 import { ContactlistComponent } from './contactlist/contactlist.component';
-import { ContactComponent } from './contact/contact.component';
+import { DeleteComponent } from './delete/delete.component';
+import { AppService } from './app.service';
 
 
 @NgModule({
@@ -20,13 +21,13 @@ import { ContactComponent } from './contact/contact.component';
     AppComponent,
     TopheaderComponent,
     SearchtoolComponent,
-    SidelistComponent,
+    DeleteComponent,
     MainbodyComponent,
     NavigatorComponent,
-    ContactlistComponent,
-    ContactComponent
+    ContactlistComponent
     
   ],
+  entryComponents: [DeleteComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -39,9 +40,10 @@ import { ContactComponent } from './contact/contact.component';
     MdTabsModule,
     MdSelectModule,
     MaterialModule,
-    MdDialogModule
+    MdDialogModule,
+    MdCardModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

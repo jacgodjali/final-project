@@ -1,6 +1,39 @@
-.material-icons {
-   font-size: 48px;
+.material-icons.searchtool {
+   font-size: 24px;
 }
 .search {
-    font-size: 10px;
+    font-size: 20px;
+}
+md-card.contacts:active {
+    background-color:lightslategrey;
+}
+
+md-card.contacts:hover {
+    border-style: groove;
+    border-color: lightskyblue;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+    padding-top: 10px;
+}
+div.picture {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 10px;
+}
+.material-icons.picture { 
+    font-size: 48px; 
+    float: left;
+    
+}
+.material-icons.icon { 
+    font-size: 36px; 
+    margin-right: -10px;
 }

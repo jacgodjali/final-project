@@ -1,32 +1,50 @@
 * {
-    font-size: 18px;
+    font-size: 14px;
 }
 section.left {
-    width: 45%;
+    width: 39%;
     float: left;
-    margin-left: 10px;
+    margin-left: 50px;
 }
 section.right {
-    width: 45%;
+    width: 30%;
     float: left;
-    margin-left: 10px;
-    
+    margin-left: 50px; 
 }
 .leftwidth {
-    width: 350px;
+    width: 300px;
 }
 .rightwidth {
-    width: 350px;
+    width: 300px;
 }
 .col-md-4 {
     float: right;
 }
 .material-icons.photo { 
-    font-size: 60px; 
+    font-size: 80px;
+    position: absolute;
+    right: 25px; 
+}
+.material-icons.camera { 
+    font-size: 24px;
+    position: absolute;
+    right: 10px; 
+    top: 5px;
 }
 button.camera { 
-    font-size: 18px; 
+    font-size: 24px; 
     position: absolute;
     right: 5px;
     top: 15px;
+}
+.material-icons.add {
+    font-size: 36px;
+    
+    
+    /*left: -5px;
+    top: 0px;*/
+}
+button.add {
+    position: absolute;
+    top: 50%;
 }

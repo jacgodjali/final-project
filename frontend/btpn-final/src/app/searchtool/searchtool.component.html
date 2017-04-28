@@ -1,16 +1,17 @@
+<section class ="searchtoolbar">
 <md-toolbar>  <i class="material-icons">search</i>
 <md-input-container>
-    <input mdInput placeholder="Search" class="search">
+    <input mdInput placeholder="Search" class="search" type="text" (keyup)="onSearch($event)">
 </md-input-container>
  <button md-icon-button [mdMenuTriggerFor]="menu">
-    <i class="material-icons">sort</i>
+    <i class="material-icons">sort_by_alpha</i>
   </button>
   <md-menu #menu="mdMenu">
-    <button md-menu-item>Ascending</button>
-    <button md-menu-item>Descending</button>
+    <button md-menu-item (click)="ascending()">Ascending</button>
+    <button md-menu-item (click)="descending()">Descending</button>
   </md-menu>
  <button md-icon-button [mdMenuTriggerFor]="filter">  
-<i class="material-icons">filter_list</i>
+<i class="material-icons searchtool">filter_list</i>
  </button>
  <md-menu #filter="mdMenu">
     <md-radio-group>
@@ -20,10 +21,42 @@
     
     </md-radio-group>
   </md-menu>
-    <button md-icon-button  (click)="onDelete()"> 
-    <i class="material-icons">delete</i>
-  </button>
+  <button *ngIf='empId != undefined'  md-icon-button (click)="openDialog()">
+    <i class="material-icons searchtool">delete</i>
+    </button>
 <md-chip-list>
-<md-chip>12</md-chip>
+<md-chip>{{contacts?contacts.length:0}}</md-chip>
 </md-chip-list>
 </md-toolbar>
+</section>
+
+
+<section class="contact-list" *ngFor="let contact of contacts">
+  <md-card class="contacts" (click)="onClick(contact.empId)">
+<md-card-header>
+ <div md-card-avatar class="example-header-image">
+   <i class="material-icons picture">sentiment_very_satisfied</i>
+        </div>
+        
+
+      <md-card-title>{{ contact.firstName }} {{ contact.lastName }}</md-card-title>
+      <md-card-subtitle>{{contact.grade}}, {{contact.division}}</md-card-subtitle>
+      <md-card-subtitle>{{contact.location.city}}, {{contact.phone}}</md-card-subtitle>
+      
+      <span class="example-spacer"></span>
+      <ul>
+        <li style="font-size: 70%">
+         {{contact.hiredDate | date}}
+         
+        </li>
+        <li style="float:right">
+          <i class="material-icons icon">adjust</i>
+          <i class="material-icons icon">chevron_right</i>
+
+        </li>
+      </ul>
+</md-card-header>
+
+  </md-card>
+
+</section>
