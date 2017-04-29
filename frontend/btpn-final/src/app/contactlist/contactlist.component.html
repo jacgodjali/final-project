@@ -1,10 +1,19 @@
 <br>
 <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
-    
-<i class="material-icons photo">account_circle</i>
-<button md-icon-button class="camera" (click)="clickButton()">
+    <!--<img *ngIf="data.photo||this.empphoto" [src]="this.empphoto?this.empphoto:data.photo" style="position: absolute;right:30px;top:20px">
+          <i class="material-icons photo" *ngIf="!data.photo&&!this.empphoto">account_circle</i>
+          <div class="image-upload">-->
+<!--<i class="material-icons photo">account_circle</i>-->
+<!--<button md-icon-button class="camera" (click)="clickButton()">
 <i class="material-icons camera">photo_camera</i>
   </button>
+  -->
+   <!--<div class="image-upload">
+            <label for="photo">
+             <i class="material-icons" style="position: absolute;right:30px;top:20px;cursor: pointer;">photo_camera</i>
+          </label>
+            <input type="file" id="photo" name="photo" formControlName="photo" (change)="fileChange($event)">
+          </div>-->
 <input type="hidden" id="empId" formControlName="empId" [(ngModel)]="id">
     <table>
         <tr>
@@ -41,19 +50,19 @@
             </td>
             <td>
                 <md-input-container class = "rightwidth">
-                    <input mdInput placeholder="Suspend Date" formControlName="suspendDate">
+                    <input mdInput placeholder="Suspend Date" type="date" formControlName="suspendDate">
                 </md-input-container>
             </td>
         </tr>
         <tr>
             <td>
                 <md-input-container class = "leftwidth">
-                    <input mdInput placeholder="Date Of Birth" formControlName="dateOfBirth" [(ngModel)]="dateOfBirth">
+                    <input mdInput placeholder="Date Of Birth" type="date" formControlName="dateOfBirth" [(ngModel)]="dateOfBirth">
                 </md-input-container>
             </td>
             <td>
                 <md-input-container class = "rightwidth">
-                    <input mdInput placeholder="Hired Date" formControlName="hiredDate">
+                    <input mdInput placeholder="Hired Date" type="date" formControlName="hiredDate">
                 </md-input-container>
             </td>
         </tr>

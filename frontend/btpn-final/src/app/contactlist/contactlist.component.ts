@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { RefreshService } from 'app/refresh.service'
 import { Subscription } from 'rxjs/Subscription';
-import { AppService } from 'app/app.service'
+import { AppService } from 'app/app.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
  selector: 'contactlist',
@@ -16,7 +17,8 @@ export class ContactlistComponent implements OnInit {
   data;
   private subscription: Subscription
   constructor(private formBuilder: FormBuilder,
-    private refreshService: RefreshService, private service:AppService) { }
+    private refreshService: RefreshService, private service:AppService,
+    private datepipe:DatePipe) { }
 
 
   ngOnInit() {
@@ -46,18 +48,31 @@ export class ContactlistComponent implements OnInit {
       }
       else if (res.hasOwnProperty('option') && res.option === 'showToForm') {
         this.data=res.value;
+        let tempDate = "";
         console.log(this.data);
         this.contactForm.controls['empId'].setValue(this.data.empId);
         this.contactForm.controls['firstName'].setValue(this.data.firstName);
         this.contactForm.controls['lastName'].setValue(this.data.lastName);
         this.contactForm.controls['gender'].setValue(this.data.gender);
-        this.contactForm.controls['dateOfBirth'].setValue(this.data.dateOfBirth);
+        
+        var contactDob = new Date(this.data.dateOfBirth);
+        tempDate = this.datepipe.transform(contactDob, 'yyyy-MM-dd');
+
+        this.contactForm.controls['dateOfBirth'].setValue(tempDate);
         this.contactForm.controls['nationality'].setValue(this.data.nationality);
         this.contactForm.controls['maritalStatus'].setValue(this.data.maritalStatus);
         this.contactForm.controls['phone'].setValue(this.data.phone);
         this.contactForm.controls['status'].setValue(this.data.status);
-        this.contactForm.controls['suspendDate'].setValue(this.data.suspendDate);
-        this.contactForm.controls['hiredDate'].setValue(this.data.hiredDate);
+
+        var contactSupendedDate = new Date(this.data.suspendDate);
+        tempDate = this.datepipe.transform(contactDob, 'yyyy-MM-dd');
+
+        this.contactForm.controls['suspendDate'].setValue(tempDate);
+
+         var contactHiredDate = new Date(this.data.hiredDate);
+        tempDate = this.datepipe.transform(contactDob, 'yyyy-MM-dd');
+
+        this.contactForm.controls['hiredDate'].setValue(tempDate);
         this.contactForm.controls['grade'].setValue(this.data.grade);
         this.contactForm.controls['division'].setValue(this.data.division);
         this.contactForm.controls['subDivision'].setValue(this.data.subDivision);

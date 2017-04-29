@@ -17,7 +17,8 @@ import { FilterComponent } from './filter/filter.component';
 import { AppService } from './app.service';
 import { RefreshService } from './refresh.service';
 import { lookupListToken, lookupLists } from './provides';
-import { Routing} from './app.routing';
+import { Routing } from './app.routing';
+import { DatePipe} from '@angular/common';
 import 'hammerjs';
 
 
@@ -51,7 +52,7 @@ import 'hammerjs';
     MdCardModule,
     Routing
   ],
-  providers: [AppService, RefreshService,
+  providers: [AppService, RefreshService, DatePipe,
   {
       provide: lookupListToken, useValue: lookupLists
     }],
