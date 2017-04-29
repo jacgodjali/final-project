@@ -1,0 +1,22 @@
+<h1 md-dialog-title>Filter</h1>
+<section md-dialog-content>
+    <h2 md-dialog-title>Location</h2>
+    <section>
+        <md-radio-group [(ngModel)]="locationValue">
+            <md-radio-button *ngFor="let location of locations" [value]="location.city"> {{ location.city }} </md-radio-button>
+        </md-radio-group>
+    </section>
+</section>
+<section md-dialog-content>
+    <h2 md-dialog-title>Gender</h2>
+    <section>
+        <md-radio-group [(ngModel)]="genderValue">
+            <md-radio-button value="Female">Female</md-radio-button>            
+            <md-radio-button value="Male">Male</md-radio-button>
+        </md-radio-group>
+    </section>
+</section>
+<div md-dialog-actions>
+    <button md-fab (click)="doFilter()">Filter</button>
+    <button md-fab (click)="dialogRef.close({action:'cancel'})">Cancel</button>
+</div>

@@ -13,7 +13,12 @@ import { MainbodyComponent } from './mainbody/mainbody.component';
 import { NavigatorComponent } from './navigator/navigator.component';
 import { ContactlistComponent } from './contactlist/contactlist.component';
 import { DeleteComponent } from './delete/delete.component';
+import { FilterComponent } from './filter/filter.component';
 import { AppService } from './app.service';
+import { RefreshService } from './refresh.service';
+import { lookupListToken, lookupLists } from './provides';
+import { Routing} from './app.routing';
+
 
 
 @NgModule({
@@ -24,10 +29,11 @@ import { AppService } from './app.service';
     DeleteComponent,
     MainbodyComponent,
     NavigatorComponent,
-    ContactlistComponent
+    ContactlistComponent,
+    FilterComponent
     
   ],
-  entryComponents: [DeleteComponent],
+  entryComponents: [DeleteComponent, FilterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -41,9 +47,13 @@ import { AppService } from './app.service';
     MdSelectModule,
     MaterialModule,
     MdDialogModule,
-    MdCardModule
+    MdCardModule,
+    Routing
   ],
-  providers: [AppService],
+  providers: [AppService, RefreshService,
+  {
+      provide: lookupListToken, useValue: lookupLists
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,18 +10,9 @@
     <button md-menu-item (click)="ascending()">Ascending</button>
     <button md-menu-item (click)="descending()">Descending</button>
   </md-menu>
- <button md-icon-button [mdMenuTriggerFor]="filter">  
-<i class="material-icons searchtool">filter_list</i>
- </button>
- <md-menu #filter="mdMenu">
-    <md-radio-group>
-    <button md-menu-item>By Location</button>
-    <button md-menu-item>By Gender</button>
-    <button md-menu-item>By Grade</button>
-    
-    </md-radio-group>
-  </md-menu>
-  <button *ngIf='empId != undefined'  md-icon-button (click)="openDialog()">
+ <button md-icon-button (click)="openFilterDialog()"><i class="material-icons searchtool">filter_list</i></button>
+ 
+  <button  md-icon-button (click)="openDialog()">
     <i class="material-icons searchtool">delete</i>
     </button>
 <md-chip-list>
@@ -30,23 +21,22 @@
 </md-toolbar>
 </section>
 
-
 <section class="contact-list" *ngFor="let contact of contacts">
   <md-card class="contacts" (click)="onClick(contact.empId)">
-<md-card-header>
- <div md-card-avatar class="example-header-image">
-   <i class="material-icons picture">sentiment_very_satisfied</i>
-        </div>
-        
+    <md-card-header>
+      <div md-card-avatar class="example-header-image">
+        <i class="material-icons picture">sentiment_very_satisfied</i>
+      </div>
 
       <md-card-title>{{ contact.firstName }} {{ contact.lastName }}</md-card-title>
       <md-card-subtitle>{{contact.grade}}, {{contact.division}}</md-card-subtitle>
       <md-card-subtitle>{{contact.location.city}}, {{contact.phone}}</md-card-subtitle>
-      
+
       <span class="example-spacer"></span>
       <ul>
         <li style="font-size: 70%">
-         {{contact.hiredDate | date}}
+          {{contact.hiredDate | date}}
+
          
         </li>
         <li style="float:right">
@@ -58,5 +48,9 @@
 </md-card-header>
 
   </md-card>
-
+<md-card class="zerocontacts" *ngIf='contact.length < 1'>
+<md-card-header>
+  <md-card-title> Sorry we can't find the contact you are looking for.... </md-card-title>
+</md-card-header>
+</md-card>
 </section>
