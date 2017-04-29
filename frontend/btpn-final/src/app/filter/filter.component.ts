@@ -34,6 +34,7 @@ export class FilterComponent implements OnInit {
             this.dialogRef.close;
             this.service.filterByGender(this.genderValue).subscribe(data=>{
                 this.refreshService.notifyOther({ option: 'refresh', value: data });
+                
             });
         }
         else if(this.genderValue===undefined && this.locationValue!==undefined){
@@ -48,7 +49,7 @@ export class FilterComponent implements OnInit {
                 this.refreshService.notifyOther({ option: 'refresh', value: data });
             });
         }
-        
+       this.dialogRef.close; 
 	}
     
 }

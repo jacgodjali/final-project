@@ -18,6 +18,7 @@ import { AppService } from './app.service';
 import { RefreshService } from './refresh.service';
 import { lookupListToken, lookupLists } from './provides';
 import { Routing} from './app.routing';
+import 'hammerjs';
 
 
 

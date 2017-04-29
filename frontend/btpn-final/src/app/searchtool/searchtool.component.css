@@ -37,3 +37,15 @@ div.picture {
     font-size: 36px; 
     margin-right: -10px;
 }
+button.add {
+    position: absolute;
+    top: 60%;
+    right: 5px;
+}
+.material-icons.add {
+    font-size: 36px;
+    
+    
+    /*left: -5px;
+    top: 0px;*/
+}

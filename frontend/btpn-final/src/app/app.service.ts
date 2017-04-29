@@ -81,4 +81,19 @@ private headers = new Headers({'Content-Type': 'application/json'});
         return response.json();
       });
   }
+   addContact(contactData){
+    contactData.location={"id":"","city":contactData.location};
+    return this.http.post('http://localhost:8080/employee/add',contactData).
+    map(() => {
+      return "";
+    });
+  }
+
+  updateContact(id,contactData){
+    contactData.location={"id":"","city":contactData.location};
+    return this.http.post('http://localhost:8080/employee/update/'+id ,contactData).
+    map(() => {
+      return "";
+    });
+  }
 }

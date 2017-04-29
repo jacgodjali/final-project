@@ -20,67 +20,68 @@ export class SearchtoolComponent implements OnInit {
   name;
   hidden = false;
   selectedOption: string;
-  genderValue;
-    locationValue;
-    locations;
+  id;
   @Input() contact;
 
   private subscription: Subscription;
   constructor(public dialog: MdDialog, private service: AppService,
- private refreshService:RefreshService) {}
-	
-  
+    private refreshService: RefreshService) {}
+
+
 
   ascending() {
     this.service.sorting(this.ascend)
-    .subscribe(result =>{
-      this.contacts = result;
-    });
+      .subscribe(result => {
+        this.contacts = result;
+      });
   }
-   descending() {
+  descending() {
     this.service.sorting(this.descend)
-    .subscribe(result =>{
-      this.contacts = result;
-    });
-  } 
+      .subscribe(result => {
+        this.contacts = result;
+      });
+  }
   onSearch(event) {
     this.name = event.target.value;
     console.log(this.name);
-   this.service.searchName(this.name)
+    this.service.searchName(this.name)
       .subscribe(contacts => {
         this.contacts = contacts;
       });
-    }
-    openFilterDialog() {
+  }
+  openFilterDialog() {
     let dialogRef = this.dialog.open(FilterComponent);
   }
-  openDialog() {
+  openDeleteDialog() {
     let dialogRef = this.dialog.open(DeleteComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      this.selectedOption = result;
+    dialogRef.afterClosed().subscribe(data => {
+      if (data == 'yes') {
+        this.doDelete();
+      }
+
     });
   }
-    onClick(empId) {
+  doDelete() {
+  console.log(this.contact.empId);
+    this.service.onDelete(this.contact.empId).subscribe(data => {
+        this.refreshService.notifyOther(
+          {option: 'deletedId', value: data});
+      });
+
+  }
+  onClick(empId) {
     this.service.getContactById(empId)
       .subscribe(contacts => {
         this.contact = contacts
         console.log(this.contact);
+        this.refreshService.notifyOther({ option: "showToForm", value: this.contact });
       });
     this.hidden = true;
   }
 
-  onDelete(id) {
-    this.service.onDelete(id)
-      .subscribe(id => {
-        this.service.getAll().
-          subscribe(data => {
-            this.contacts = data;
-            this.hidden = false;
-          });
-      });
-  
+ addContact() {
+    this.refreshService.notifyOther({ option: 'reset', value: "" });
   }
-
 
   ngOnInit() {
     this.service.getAll().subscribe(data => {
@@ -92,6 +93,18 @@ export class SearchtoolComponent implements OnInit {
         this.contacts = res.value;
       }
       else if (res.hasOwnProperty('option') && res.option === 'add') {
+        this.service.getAll()
+          .subscribe(data => {
+            this.contacts = data
+          });
+      }
+      else if (res.hasOwnProperty('option') && res.option === 'update') {
+        this.service.getAll()
+          .subscribe(data => {
+            this.contacts = data
+          });
+      }
+       else if (res.hasOwnProperty('option') && res.option === 'deletedId') {
         this.service.getAll()
           .subscribe(data => {
             this.contacts = data

@@ -1,11 +1,117 @@
-<section (ngSubmit)="onSubmit(form.value)">
-<button md-mini-fab class="add" (click)="openDialog()">
- <i class="material-icons add">add</i>
-  </button><br>
+<br>
+<form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
+    
 <i class="material-icons photo">account_circle</i>
 <button md-icon-button class="camera" (click)="clickButton()">
 <i class="material-icons camera">photo_camera</i>
   </button>
+<input type="hidden" id="empId" formControlName="empId" [(ngModel)]="id">
+    <table>
+        <tr>
+            <td>
+                <md-input-container class="leftwidth">
+                    <input mdInput placeholder="First Name" formControlName="firstName" >
+                </md-input-container> 
+            </td>
+            <td>
+                <md-input-container class = "rightwidth">
+                    <input mdInput placeholder="Sub Division" formControlName="subDivision">
+                </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <md-input-container class = "leftwidth">
+                    <input mdInput placeholder="last Name" formControlName="lastName">
+                </md-input-container>
+            </td>
+            <td>
+                <md-input-container class = "rightwidth">                    
+                    <input mdInput placeholder="Status" formControlName="status">                    
+                </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <md-input-container class = "leftwidth">
+                    
+                    <input mdInput placeholder="Gender" formControlName="gender">
+                </md-input-container>
+                
+            </td>
+            <td>
+                <md-input-container class = "rightwidth">
+                    <input mdInput placeholder="Suspend Date" formControlName="suspendDate">
+                </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <md-input-container class = "leftwidth">
+                    <input mdInput placeholder="Date Of Birth" formControlName="dateOfBirth" [(ngModel)]="dateOfBirth">
+                </md-input-container>
+            </td>
+            <td>
+                <md-input-container class = "rightwidth">
+                    <input mdInput placeholder="Hired Date" formControlName="hiredDate">
+                </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <md-input-container class = "leftwidth">
+                    <input mdInput placeholder="Nationality" formControlName="nationality">
+                </md-input-container>
+            </td>
+            <td>
+                <md-input-container class = "rightwidth">
+                    <input mdInput placeholder="Grade" formControlName="grade">
+                </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <md-input-container class = "leftwidth">
+                    <input mdInput placeholder="MaritalStatus" formControlName="maritalStatus">
+                    
+                </md-input-container>
+            </td>
+            <td>
+                <md-input-container class = "rightwidth">
+                    <input mdInput placeholder="Division" formControlName="division">
+                </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <md-input-container class = "leftwidth">
+                    <input mdInput placeholder="Phone" formControlName="phone">
+                </md-input-container>
+            </td>
+            <td>
+                <md-input-container class = "rightwidth">
+                    <input mdInput placeholder="Email" type="email" formControlName="email">
+                </md-input-container>
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+    </table>
+    <md-input-container class = "leftwidth">
+                    
+                    <input mdInput placeholder="Location" formControlName="location">
+                    
+                </md-input-container>
+
+                <br><br>
+    <section class = "button-group">
+    <button type="reset" class="btn btn-primary">Cancel</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
+    </section>
+</form>
+<!--<section (ngSubmit)="onSubmit(form.value)" *ngFor="let contact of contacts">
+
 <section class="left">
   <md-input-container class="leftwidth">
     <input mdInput placeholder="First Name" name="firstName">
@@ -81,4 +187,4 @@
   <button type="reset" class="btn btn-primary">Reset</button>
   <button type="submit" class="btn btn-primary">Submit</button>
 </div>
-</section>
+</section>-->

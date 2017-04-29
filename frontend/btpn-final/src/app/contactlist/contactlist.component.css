@@ -1,24 +1,14 @@
 * {
     font-size: 14px;
 }
-section.left {
-    width: 39%;
-    float: left;
-    margin-left: 50px;
-}
-section.right {
-    width: 30%;
-    float: left;
-    margin-left: 50px; 
-}
 .leftwidth {
-    width: 300px;
+    width: 350px;
+    margin-left: 70px;
 }
 .rightwidth {
-    width: 300px;
-}
-.col-md-4 {
-    float: right;
+    width: 350px;
+    margin-left:70px;
+    
 }
 .material-icons.photo { 
     font-size: 80px;
@@ -37,14 +27,17 @@ button.camera {
     right: 5px;
     top: 15px;
 }
-.material-icons.add {
-    font-size: 36px;
-    
-    
-    /*left: -5px;
-    top: 0px;*/
-}
 button.add {
     position: absolute;
-    top: 50%;
+    top: 60%;
+    margin-left: 10px;
+    
+}
+.material-icons.add {
+    font-size: 36px;
+}
+
+section.button-group {
+    float: right;
+    margin-right: 20%;
 }

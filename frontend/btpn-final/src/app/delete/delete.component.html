@@ -1,8 +1,8 @@
 <h1 md-dialog-title>Are you sure you 
     <br>want to delete?</h1>
 <div md-dialog-actions>
-  <button md-button (click)="dialogRef.close({action:'delete'})">Yes</button>
-  <button md-button (click)="dialogRef.close({action:'no'})">Cancel</button>
+  <button md-button (click)="dialogRef.close('yes')">Yes</button>
+  <button md-button (click)="dialogRef.close('no')">Cancel</button>
 </div>
 
 		

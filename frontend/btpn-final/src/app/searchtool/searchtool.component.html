@@ -12,7 +12,7 @@
   </md-menu>
  <button md-icon-button (click)="openFilterDialog()"><i class="material-icons searchtool">filter_list</i></button>
  
-  <button  md-icon-button (click)="openDialog()">
+  <button  md-icon-button *ngIf="hidden" (click)="openDeleteDialog(contact.empId)">
     <i class="material-icons searchtool">delete</i>
     </button>
 <md-chip-list>
@@ -22,6 +22,11 @@
 </section>
 
 <section class="contact-list" *ngFor="let contact of contacts">
+  <md-card class="zerocontacts" *ngIf="contact.length == 0">
+<md-card-header>
+  <md-card-title> Sorry we can't find the contact you are looking for.... </md-card-title>
+</md-card-header>
+</md-card>
   <md-card class="contacts" (click)="onClick(contact.empId)">
     <md-card-header>
       <div md-card-avatar class="example-header-image">
@@ -48,9 +53,8 @@
 </md-card-header>
 
   </md-card>
-<md-card class="zerocontacts" *ngIf='contact.length < 1'>
-<md-card-header>
-  <md-card-title> Sorry we can't find the contact you are looking for.... </md-card-title>
-</md-card-header>
-</md-card>
+
 </section>
+<button md-mini-fab class="add" (click)="addContact()">
+ <i class="material-icons add">add</i>
+  </button>
