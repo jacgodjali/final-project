@@ -14,6 +14,7 @@ import { NavigatorComponent } from './navigator/navigator.component';
 import { ContactlistComponent } from './contactlist/contactlist.component';
 import { DeleteComponent } from './delete/delete.component';
 import { FilterComponent } from './filter/filter.component';
+import { AddedComponent } from './added/added.component';
 import { AppService } from './app.service';
 import { RefreshService } from './refresh.service';
 import { lookupListToken, lookupLists } from './provides';
@@ -32,10 +33,10 @@ import 'hammerjs';
     MainbodyComponent,
     NavigatorComponent,
     ContactlistComponent,
-    FilterComponent
-    
+    FilterComponent,
+    AddedComponent
   ],
-  entryComponents: [DeleteComponent, FilterComponent],
+  entryComponents: [DeleteComponent, FilterComponent, AddedComponent ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

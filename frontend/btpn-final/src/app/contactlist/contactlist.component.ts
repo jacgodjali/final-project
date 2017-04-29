@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialog } from '@angular/material';
 import { Validators, FormBuilder } from '@angular/forms';
 import { RefreshService } from 'app/refresh.service'
 import { Subscription } from 'rxjs/Subscription';
 import { AppService } from 'app/app.service';
 import { DatePipe } from '@angular/common';
+import { AddedComponent } from 'app/added/added.component';
+
 
 @Component({
  selector: 'contactlist',
@@ -38,11 +41,14 @@ locations = [
 ]
 
   private subscription: Subscription
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder, public dialog: MdDialog,
     private refreshService: RefreshService, private service:AppService,
     private datepipe:DatePipe) { }
 
 
+openDialog() {
+    let dialogRef = this.dialog.open(AddedComponent);
+  }
 
   ngOnInit() {
 
