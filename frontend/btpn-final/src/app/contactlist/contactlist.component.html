@@ -42,10 +42,9 @@
         </tr>
         <tr>
             <td>
-                <md-input-container class = "leftwidth">
-                    
-                    <input mdInput placeholder="Gender" formControlName="gender">
-                </md-input-container>
+                    <md-select class = "leftwidth" placeholder="Gender" formControlName="gender">
+   <md-option *ngFor="let gender of genders" [value]="gender.value" >{{ gender.viewValue }}</md-option>
+</md-select>
                 
             </td>
             <td>
@@ -73,9 +72,9 @@
                 </md-input-container>
             </td>
             <td>
-                <md-input-container class = "rightwidth">
-                    <input mdInput placeholder="Grade" formControlName="grade">
-                </md-input-container>
+                <md-select class = "rightwidth" placeholder="Grade" formControlName="grade">
+   <md-option *ngFor="let grade of grades" [value]="grade.value" >{{ grade.viewValue }}</md-option>
+</md-select>
             </td>
         </tr>
         <tr>
@@ -86,9 +85,9 @@
                 </md-input-container>
             </td>
             <td>
-                <md-input-container class = "rightwidth">
-                    <input mdInput placeholder="Division" formControlName="division">
-                </md-input-container>
+                  <md-select class = "rightwidth" placeholder="Division" formControlName="division">
+   <md-option *ngFor="let division of divs" [value]="division.value" >{{ division.viewValue }}</md-option>
+</md-select>
             </td>
         </tr>
         <tr>
@@ -107,11 +106,10 @@
             </td>
         </tr>
     </table>
-    <md-input-container class = "leftwidth">
-                    
-                    <input mdInput placeholder="Location" formControlName="location">
-                    
-                </md-input-container>
+                   <md-select class = "leftwidth" placeholder="Location" formControlName="location">
+   <md-option *ngFor="let location of locations" [value]="location.value" >{{ location.viewValue }}</md-option>
+</md-select> 
+                   
 
                 <br><br>
     <section class = "button-group">

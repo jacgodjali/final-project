@@ -15,10 +15,33 @@ export class ContactlistComponent implements OnInit {
   contactForm;
   id;
   data;
+  genders = [
+  {value: 'Female', viewValue: 'Female'},
+  {value: 'Male', viewValue: 'Male'}
+]
+grades = [
+  {value: 'SE-JP', viewValue: 'SE-JP'},
+  {value: 'SE-PG', viewValue: 'SE-PG'},
+  {value: 'SE-AP', viewValue: 'SE-AP'},
+  {value: 'SE-AN', viewValue: 'SE-JP'}
+]
+divs = [
+  {value: 'BTPN Jenius', viewValue: 'BTPN Jenius'},
+  {value: 'CDC AsteRx', viewValue: 'CDC AsteRx'},
+  {value: 'SWD Pink', viewValue: 'SWD Pink'}
+]
+locations = [
+  {value: 'Bali', viewValue: 'Bali'},
+  {value: 'Bandung', viewValue: 'Bandung'},
+  {value: 'Jakarta', viewValue: 'Jakarta'},
+  {value: 'Yogyakarta', viewValue: 'Yogyakarta'}  
+]
+
   private subscription: Subscription
   constructor(private formBuilder: FormBuilder,
     private refreshService: RefreshService, private service:AppService,
     private datepipe:DatePipe) { }
+
 
 
   ngOnInit() {
