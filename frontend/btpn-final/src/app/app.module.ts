@@ -20,6 +20,7 @@ import { RefreshService } from './refresh.service';
 import { lookupListToken, lookupLists } from './provides';
 import { Routing } from './app.routing';
 import { DatePipe} from '@angular/common';
+import { SafeUrl } from 'app/safeUrl.pipe';
 import 'hammerjs';
 
 
@@ -34,7 +35,8 @@ import 'hammerjs';
     NavigatorComponent,
     ContactlistComponent,
     FilterComponent,
-    AddedComponent
+    AddedComponent,
+    SafeUrl
   ],
   entryComponents: [DeleteComponent, FilterComponent, AddedComponent ],
   imports: [

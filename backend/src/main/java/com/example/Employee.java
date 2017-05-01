@@ -9,8 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "Employee")
@@ -48,6 +49,7 @@ public class Employee {
 	@Column(name = "email", nullable = false)
 	private String email;
 	@Column(nullable = true)
+	@Type(type="text")
 	private String photo;
 
 	@ManyToOne

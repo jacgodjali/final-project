@@ -21,6 +21,8 @@ export class SearchtoolComponent implements OnInit {
   hidden = false;
   selectedOption: string;
   id;
+  show;
+
   @Input() contact;
 
   private subscription: Subscription;
@@ -67,6 +69,7 @@ export class SearchtoolComponent implements OnInit {
         this.refreshService.notifyOther(
           {option: 'deletedId', value: data});
       });
+      this.hidden = false;
 
   }
   onClick(empId) {
@@ -79,6 +82,23 @@ export class SearchtoolComponent implements OnInit {
     this.hidden = true;
   }
 
+ setImage(contact) {
+    if (contact.photo == null) {
+      return "src/app/account.png";
+    } else {
+      return contact.photo;
+    }
+  }
+
+  isSelected(selected){
+    let flag = true;
+    if(this.contact!=null && selected!=null){
+      if(this.id===selected.empId){
+        flag=false;
+      }
+    }
+    return flag;
+  }
  addContact() {
     this.refreshService.notifyOther({ option: 'reset', value: "" });
   }

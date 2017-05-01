@@ -10,10 +10,10 @@
     margin-left:70px;
     
 }
-.material-icons.photo { 
-    font-size: 80px;
-    position: absolute;
-    right: 25px; 
+.image { 
+    border-radius: 100%;
+    height: 250px;
+    width: 250px; 
 }
 .material-icons.camera { 
     font-size: 24px;

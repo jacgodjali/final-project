@@ -1,19 +1,8 @@
+<section *ngIf="!isShow" class="select-message">
+    <h2>Please select employee or add new one</h2>
+</section>
 <br>
-<form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
-    <!--<img *ngIf="data.photo||this.empphoto" [src]="this.empphoto?this.empphoto:data.photo" style="position: absolute;right:30px;top:20px">
-          <i class="material-icons photo" *ngIf="!data.photo&&!this.empphoto">account_circle</i>
-          <div class="image-upload">-->
-<!--<i class="material-icons photo">account_circle</i>-->
-<!--<button md-icon-button class="camera" (click)="clickButton()">
-<i class="material-icons camera">photo_camera</i>
-  </button>
-  -->
-   <!--<div class="image-upload">
-            <label for="photo">
-             <i class="material-icons" style="position: absolute;right:30px;top:20px;cursor: pointer;">photo_camera</i>
-          </label>
-            <input type="file" id="photo" name="photo" formControlName="photo" (change)="fileChange($event)">
-          </div>-->
+<form *ngIf="isShow" class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
 <input type="hidden" id="empId" formControlName="empId" [(ngModel)]="id">
     <table>
         <tr>
@@ -26,6 +15,11 @@
                 <md-input-container class = "rightwidth">
                     <input mdInput placeholder="Sub Division" formControlName="subDivision">
                 </md-input-container>
+            </td>
+            <td>
+                <img class="image" [src]="photo | safeUrl" (click)="fileInput.click()" />
+                <input name="photo" id="photo" class="file-chooser" #fileInput type="file" hidden="hidden" accept="image/*" (change)="chooseImage($event)"
+                />
             </td>
         </tr>
         <tr>

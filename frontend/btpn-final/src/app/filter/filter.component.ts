@@ -51,5 +51,10 @@ export class FilterComponent implements OnInit {
         }
        this.dialogRef.close; 
 	}
+
+    resetFilter(){
+        this.genderValue=undefined;
+        this.locationValue=undefined;
+    }
     
 }
