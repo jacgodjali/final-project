@@ -18,7 +18,8 @@ header {
 .material-icons.md-36 {
    margin-top: 5px;
    font-size: 36px;
+   padding: 10px;
 }
 .example-spacer {
-  flex: 1 1 auto;
+  flex: 3 3 auto;
 }
