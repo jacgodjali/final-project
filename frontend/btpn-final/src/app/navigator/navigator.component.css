@@ -1,7 +1,16 @@
 * {
     padding-top: 15px;
+
 }
 .material-icons {
-    margin-top: -15px;
-   font-size: 36px;  
+    margin-top: -10px;
+   font-size: 30px;  
+}
+h3 {
+    margin-left: 50px;
+    font-size: 20px;
+}
+.navigator {
+        background-color: lightgoldenrodyellow;
+
 }

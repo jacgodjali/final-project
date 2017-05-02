@@ -1,114 +1,112 @@
-<section *ngIf="!isShow" class="select-message">
-    <h2>Please select employee or add new one</h2>
-</section>
 <br>
 <form *ngIf="isShow" class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
-<input type="hidden" id="empId" formControlName="empId" [(ngModel)]="id">
-    <table>
+    <section class="image">
+    <img class="image" [src]="photo | safeUrl" (click)="fileInput.click()" />
+    <input name="photo" id="photo" class="file-chooser" #fileInput type="file" hidden="hidden" accept="image/*" (change)="chooseImage($event)"
+    />
+    </section>
+    <table class = "inputContent">
         <tr>
             <td>
                 <md-input-container class="leftwidth">
-                    <input mdInput placeholder="First Name" formControlName="firstName" >
-                </md-input-container> 
+                    <input mdInput placeholder="First Name" formControlName="firstName">
+                </md-input-container>
             </td>
             <td>
-                <md-input-container class = "rightwidth">
+                <md-input-container class="rightwidth">
                     <input mdInput placeholder="Sub Division" formControlName="subDivision">
                 </md-input-container>
             </td>
-            <td>
-                <img class="image" [src]="photo | safeUrl" (click)="fileInput.click()" />
-                <input name="photo" id="photo" class="file-chooser" #fileInput type="file" hidden="hidden" accept="image/*" (change)="chooseImage($event)"
-                />
-            </td>
         </tr>
         <tr>
             <td>
-                <md-input-container class = "leftwidth">
-                    <input mdInput placeholder="last Name" formControlName="lastName">
+                <md-input-container class="leftwidth">
+                    <input mdInput placeholder="Last Name" formControlName="lastName">
                 </md-input-container>
             </td>
             <td>
-                <md-input-container class = "rightwidth">                    
-                    <input mdInput placeholder="Status" formControlName="status">                    
+                <md-input-container class="rightwidth">
+                    <input mdInput placeholder="Status" formControlName="status">
                 </md-input-container>
             </td>
         </tr>
         <tr>
             <td>
-                    <md-select class = "leftwidth" placeholder="Gender" formControlName="gender">
-   <md-option *ngFor="let gender of genders" [value]="gender.value" >{{ gender.viewValue }}</md-option>
-</md-select>
-                
+                <md-select class="leftwidth" name="gender" id="gender" placeholder="Gender" formControlName="gender">
+                    <md-option *ngFor="let gndr of genders" [value]="gndr">{{ gndr }}</md-option>
+                </md-select>
             </td>
             <td>
-                <md-input-container class = "rightwidth">
-                    <input mdInput placeholder="Suspend Date" formControlName="suspendDate">
+                <md-input-container class="rightwidth">
+                    <input mdInput type="date" placeholder="Suspend Date" formControlName="suspendDate">
                 </md-input-container>
             </td>
         </tr>
         <tr>
             <td>
-                <md-input-container class = "leftwidth">
-                    <input mdInput placeholder="Date Of Birth" formControlName="dateOfBirth" [(ngModel)]="dateOfBirth">
+                <md-input-container class="leftwidth">
+                    <input mdInput type="date" placeholder="Date Of Birth" formControlName="dateOfBirth">
                 </md-input-container>
             </td>
             <td>
-                <md-input-container class = "rightwidth">
-                    <input mdInput placeholder="Hired Date" formControlName="hiredDate">
+                <md-input-container class="rightwidth">
+                    <input mdInput type="date" placeholder="Hired Date" formControlName="hiredDate">
                 </md-input-container>
             </td>
         </tr>
         <tr>
             <td>
-                <md-input-container class = "leftwidth">
+                <md-input-container class="leftwidth">
                     <input mdInput placeholder="Nationality" formControlName="nationality">
                 </md-input-container>
             </td>
             <td>
-                <md-select class = "rightwidth" placeholder="Grade" formControlName="grade">
-   <md-option *ngFor="let grade of grades" [value]="grade.value" >{{ grade.viewValue }}</md-option>
-</md-select>
+                <md-select class="rightwidth" name="grade" id="grade" placeholder="Grade" formControlName="grade">
+                    <md-option *ngFor="let gr of grades" [value]="gr">{{ gr }}</md-option>
+                </md-select>
+            </td>
+        </tr>
+                <br>
+        
+        <tr>
+            <td>
+                <md-select class="leftwidth" name="maritalStatus" id="maritalStatus" placeholder="Marital Status" formControlName="maritalStatus">
+                    <md-option *ngFor="let ms of maritals" [value]="ms">{{ ms }}</md-option>
+                </md-select>
+            </td>
+            <td>
+                <md-select class="rightwidth" name="division" id="division" placeholder="Division" formControlName="division">
+                    <md-option *ngFor="let d of divs" [value]="d">{{ d }}</md-option>
+                </md-select>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <md-input-container class="leftwidth">
+                    <input  mdInput placeholder="Phone" formControlName="phone">
+                </md-input-container>
+            </td>
+            <td>
+                <md-input-container class="rightwidth">
+                    <input mdInput type="email" placeholder="Email" formControlName="email">
+                </md-input-container>
             </td>
         </tr>
         <tr>
             <td>
-                <md-input-container class = "leftwidth">
-                    <input mdInput placeholder="MaritalStatus" formControlName="maritalStatus">
-                    
-                </md-input-container>
-            </td>
-            <td>
-                  <md-select class = "rightwidth" placeholder="Division" formControlName="division">
-   <md-option *ngFor="let division of divs" [value]="division.value" >{{ division.viewValue }}</md-option>
-</md-select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <md-input-container class = "leftwidth">
-                    <input mdInput placeholder="Phone" formControlName="phone">
-                </md-input-container>
-            </td>
-            <td>
-                <md-input-container class = "rightwidth">
-                    <input mdInput placeholder="Email" type="email" formControlName="email">
-                </md-input-container>
-            </td>
-            <td>
-                
+                <md-select class="leftwidth" placeholder="Location" name="location" id="location" formControlName="location">
+                    <md-option *ngFor="let l of locations" [value]="l.id">{{ l.city }}</md-option>
+                </md-select>
             </td>
         </tr>
     </table>
-                   <md-input-container class = "rightwidth">
-                    <input mdInput placeholder="Location" formControlName="location">
-                </md-input-container>
-                
-                   
-
-                <br><br>
-    <section class = "button-group">
-    <button type="reset" class="btn btn-primary">Cancel</button>
-  <button type="submit" class="btn btn-primary">Submit</button>
+    <section class="button-group">
+        <button class="btn btn-primary" type="reset" name="cancel">Cancel</button>
+        <button class="btn btn-primary" type="submit" name="submit">Submit</button>
     </section>
 </form>
+<section *ngIf="!isShow">
+    <h3>Select an employee card or <br>
+    add new by pressing the add button</h3>
+</section>

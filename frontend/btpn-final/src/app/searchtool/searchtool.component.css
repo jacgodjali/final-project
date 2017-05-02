@@ -4,6 +4,10 @@
 .search {
     font-size: 20px;
 }
+
+md-card-header.card {
+    float: right;
+}
 md-card.contacts:active {
     background-color:lightslategrey;
 }
@@ -29,10 +33,12 @@ div.picture {
     margin-top: 10px;
 }
 .user-img {
-    float:left;
     border-radius:100%;
-    width: 80px;
-    height: 80px;
+    top: 30%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 90px;
 
 }
 .material-icons.icon { 
@@ -46,4 +52,8 @@ button.add {
 }
 .material-icons.add {
     font-size: 36px;
+}
+section.contact-list {
+    overflow: scroll;
+    height: 696px;
 }

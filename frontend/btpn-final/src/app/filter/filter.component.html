@@ -7,6 +7,7 @@
         </md-radio-group>
     </section>
 </section>
+<br>
 <section md-dialog-content>
     <h2 md-dialog-title>Gender</h2>
     <section>
@@ -16,8 +17,9 @@
         </md-radio-group>
     </section>
 </section>
-<div md-dialog-actions>
-    <button md-fab (click)="resetFilter()">Reset</button>
-    <button md-fab (click)="doFilter()">Filter</button>
-    <button md-fab (click)="dialogRef.close({action:'cancel'})">Cancel</button>
+<br>
+<div md-dialog-actions class="button">
+    <button class="btn btn-primary" (click)="resetFilter()">Reset</button>
+    <button class="btn btn-primary" (click)="doFilter()">Filter</button>
+    <button class="btn btn-primary" (click)="dialogRef.close({action:'cancel'})">Cancel</button>
 </div>

@@ -1,5 +1,5 @@
-<section class ="searchtoolbar">
-<md-toolbar>  <i class="material-icons">search</i>
+<section>
+<md-toolbar class ="searchtoolbar">  <i class="material-icons">search</i>
 <md-input-container>
     <input mdInput placeholder="Search" class="search" type="text" (keyup)="onSearch($event)">
 </md-input-container>
@@ -25,7 +25,8 @@
  
   <md-card class="contacts" *ngFor="let contact of contacts" [ngClass]="{'selected':isSelected(contact) ,'selected':!isSelected(contact)}" (click)="onClick(contact.empId)">
     <md-card-header>
-<img class="user-img" [src]="setImage(contact) | safeUrl"  width="40" height="40">  
+<img class="user-img" [src]="setImage(contact) | safeUrl"  width="40" height="40">      
+      
       <md-card-title>{{ contact.firstName }} {{ contact.lastName }}</md-card-title>
       <md-card-subtitle>{{contact.grade}}, {{contact.division}}</md-card-subtitle>
       <md-card-subtitle>{{contact.location.city}}, {{contact.phone}}</md-card-subtitle>
@@ -38,9 +39,7 @@
          
         </li>
         <li style="float:right">
-          <i class="material-icons icon">adjust</i>
           <i class="material-icons icon">chevron_right</i>
-
         </li>
       </ul>
 </md-card-header>
