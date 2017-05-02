@@ -5,7 +5,6 @@ import { RefreshService } from 'app/refresh.service'
 import { Subscription } from 'rxjs/Subscription';
 import { AppService } from 'app/app.service';
 import { DatePipe } from '@angular/common';
-import { AddedComponent } from 'app/added/added.component';
 import { Employee } from 'app/employee.model';
 import { Location } from 'app/location.model';
 
@@ -20,7 +19,7 @@ import { Location } from 'app/location.model';
 export class ContactlistComponent implements OnInit {
   contactForm;
   employee: Employee;
-  location: Location;
+  locations: Location;
   photo;
   image;
   isShow = false;
@@ -32,32 +31,31 @@ export class ContactlistComponent implements OnInit {
   {value: 'Male', viewValue: 'Male'}
 ]
 grades = [
-  {value: 'SE-JP', viewValue: 'SE-JP'},
-  {value: 'SE-PG', viewValue: 'SE-PG'},
-  {value: 'SE-AP', viewValue: 'SE-AP'},
-  {value: 'SE-AN', viewValue: 'SE-JP'}
+  {value: 'SE - JP', viewValue: 'SE - JP'},
+  {value: 'SE - PG', viewValue: 'SE - PG'},
+  {value: 'SE - AP', viewValue: 'SE - AP'},
+  {value: 'SE - AN', viewValue: 'SE - AN'}
 ]
 divs = [
   {value: 'BTPN Jenius', viewValue: 'BTPN Jenius'},
-  {value: 'CDC AsteRx', viewValue: 'CDC AsteRx'},
-  {value: 'SWD Pink', viewValue: 'SWD Pink'}
+  {value: 'CDC - Red', viewValue: 'CDC - Red'},
+  {value: 'CDC - Services', viewValue: 'CDC - Services'},
+  {value: 'MMS - TechOne', viewValue: 'MMS - TechOne'},
+  {value: 'SWD - Blue', viewValue: 'SWD - Blue'},
+  {value: 'SWD - Services', viewValue: 'SWD - Services'},
+  {value: 'SWD - TechOne', viewValue: 'SWD - TechOne'}
+  
+  
+  
+  
 ]
-locations = [
-  {value: 'Bali', viewValue: 'Bali'},
-  {value: 'Bandung', viewValue: 'Bandung'},
-  {value: 'Jakarta', viewValue: 'Jakarta'},
-  {value: 'Yogyakarta', viewValue: 'Yogyakarta'}  
-]
+
 
   private subscription: Subscription
   constructor(private formBuilder: FormBuilder, public dialog: MdDialog,
     private refreshService: RefreshService, private service:AppService,
     private datepipe:DatePipe) { }
 
-
-openDialog() {
-    let dialogRef = this.dialog.open(AddedComponent);
-  }
 
   ngOnInit() {
 

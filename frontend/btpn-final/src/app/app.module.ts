@@ -9,12 +9,10 @@ MdCardModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { TopheaderComponent } from './topheader/topheader.component';
 import { SearchtoolComponent } from './searchtool/searchtool.component';
-import { MainbodyComponent } from './mainbody/mainbody.component';
 import { NavigatorComponent } from './navigator/navigator.component';
 import { ContactlistComponent } from './contactlist/contactlist.component';
 import { DeleteComponent } from './delete/delete.component';
 import { FilterComponent } from './filter/filter.component';
-import { AddedComponent } from './added/added.component';
 import { AppService } from './app.service';
 import { RefreshService } from './refresh.service';
 import { lookupListToken, lookupLists } from './provides';
@@ -31,14 +29,12 @@ import 'hammerjs';
     TopheaderComponent,
     SearchtoolComponent,
     DeleteComponent,
-    MainbodyComponent,
     NavigatorComponent,
     ContactlistComponent,
     FilterComponent,
-    AddedComponent,
     SafeUrl
   ],
-  entryComponents: [DeleteComponent, FilterComponent, AddedComponent ],
+  entryComponents: [DeleteComponent, FilterComponent ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

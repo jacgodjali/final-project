@@ -43,19 +43,19 @@
             </td>
             <td>
                 <md-input-container class = "rightwidth">
-                    <input mdInput placeholder="Suspend Date" type="date" formControlName="suspendDate">
+                    <input mdInput placeholder="Suspend Date" formControlName="suspendDate">
                 </md-input-container>
             </td>
         </tr>
         <tr>
             <td>
                 <md-input-container class = "leftwidth">
-                    <input mdInput placeholder="Date Of Birth" type="date" formControlName="dateOfBirth" [(ngModel)]="dateOfBirth">
+                    <input mdInput placeholder="Date Of Birth" formControlName="dateOfBirth" [(ngModel)]="dateOfBirth">
                 </md-input-container>
             </td>
             <td>
                 <md-input-container class = "rightwidth">
-                    <input mdInput placeholder="Hired Date" type="date" formControlName="hiredDate">
+                    <input mdInput placeholder="Hired Date" formControlName="hiredDate">
                 </md-input-container>
             </td>
         </tr>
@@ -100,14 +100,15 @@
             </td>
         </tr>
     </table>
-                   <md-select class = "leftwidth" placeholder="Location" formControlName="location">
-   <md-option *ngFor="let location of locations" [value]="location.value" >{{ location.viewValue }}</md-option>
-</md-select> 
+                   <md-input-container class = "rightwidth">
+                    <input mdInput placeholder="Location" formControlName="location">
+                </md-input-container>
+                
                    
 
                 <br><br>
     <section class = "button-group">
     <button type="reset" class="btn btn-primary">Cancel</button>
-  <button type="submit" class="btn btn-primary" (click)=openDialog()>Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
     </section>
 </form>
