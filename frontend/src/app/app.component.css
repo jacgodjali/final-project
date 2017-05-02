@@ -1,0 +1,15 @@
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+.left-menu{
+    float:left;
+    width:30%;
+}
+.right-menu{
+    float:left;
+    width:70%;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}

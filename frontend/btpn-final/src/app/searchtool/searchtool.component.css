@@ -39,7 +39,7 @@ div.picture {
 }
 button.add {
     position: absolute;
-    top: 60%;
+    top: 500px;
     right: 5px;
 }
 .material-icons.add {

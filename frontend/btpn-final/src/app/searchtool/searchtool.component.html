@@ -22,12 +22,9 @@
 </section>
 
 <section class="contact-list" *ngIf="!show">
- "
+ 
   <md-card class="contacts" *ngFor="let contact of contacts" [ngClass]="{'selected':isSelected(contact) ,'selected':!isSelected(contact)}" (click)="onClick(contact.empId)">
     <md-card-header>
-      <!--<div md-card-avatar class="example-header-image">
-        <i class="material-icons picture">sentiment_very_satisfied</i>
-      </div>-->
 <img class="user-img" [src]="setImage(contact) | safeUrl"  width="40" height="40">  
       <md-card-title>{{ contact.firstName }} {{ contact.lastName }}</md-card-title>
       <md-card-subtitle>{{contact.grade}}, {{contact.division}}</md-card-subtitle>
