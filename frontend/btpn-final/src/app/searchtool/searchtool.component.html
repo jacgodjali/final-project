@@ -20,9 +20,6 @@
 </md-chip-list>
 </md-toolbar>
 </section>
-<section *ngIf="show">
-        <h1>Sorry we can't find the contact you are looking for....</h1>
-    </section>
 <section class="contact-list" *ngIf="!show">
  
   <md-card class="contacts" *ngFor="let contact of contacts" [ngClass]="{'selected':isSelected(contact) ,'selected':!isSelected(contact)}" (click)="onClick(contact.empId)">
